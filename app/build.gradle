@@ -17,6 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        dev {
+            buildConfigField 'String', 'BASE_ENDPOINT', '"http://api.todd.rsdev.com.ve/"'
+            versionCode 1
+            versionName '1.0-dev'
+        }
+
+        pro {
+            buildConfigField 'String', 'BASE_ENDPOINT', '"http://api.todd.rsdev.com.ve/"'
+            versionCode 1
+            versionName '1.0'
+        }
+    }
 }
 
 dependencies {
@@ -24,6 +37,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile 'com.google.dagger:dagger:2.8'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
 }
