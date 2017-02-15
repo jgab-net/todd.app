@@ -19,7 +19,7 @@ android {
     }
     productFlavors {
         dev {
-            buildConfigField 'String', 'BASE_ENDPOINT', '"http://api.todd.rsdev.com.ve/"'
+            buildConfigField 'String', 'BASE_ENDPOINT', '"http://private-9bb7d-toddapi1.apiary-mock.com/"'
             versionCode 1
             versionName '1.0-dev'
         }
