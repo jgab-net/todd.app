@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Todd</string>
+    <string name="app_name">Easy tests</string>
+    <string name="synchronization_message">Getting the list \nof availables tests \nfor you</string>
+    <string name="synchronization_progress_title">Synchronizating</string>
+    <string name="synchronization_progress_text">Creating a list of test in the device</string>
+    <string name="synchronization_ready_title">Synchronization ready</string>
+    <string name="synchronization_ready_text">The list of test is stored in the device</string>
+    <string name="title_activity_quizzes">Patients Lists</string>
 </resources>

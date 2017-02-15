@@ -1,6 +1,7 @@
 package net.jgab.todd.core;
 
-import net.jgab.todd.test.TestsActivity;
+import net.jgab.todd.sync.SyncService;
+import net.jgab.todd.patient.PatientsActivity;
 
 import javax.inject.Singleton;
 
@@ -11,7 +12,9 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules={NetModule.class, ApplicationModule.class})
+@Component(modules={NetModule.class, ToddApiModule.class, ApplicationModule.class})
 public interface ToddComponent {
-    void inject(TestsActivity activity);
+    void inject(PatientsActivity activity);
+
+    void inject(SyncService service);
 }
