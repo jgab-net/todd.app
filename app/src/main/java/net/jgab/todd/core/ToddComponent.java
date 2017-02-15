@@ -11,7 +11,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules={NetModule.class, ApplicationModule.class})
+@Component(modules={NetModule.class, ToddApiModule.class, ApplicationModule.class})
 public interface ToddComponent {
     void inject(TestsActivity activity);
 }
