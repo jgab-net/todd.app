@@ -4,6 +4,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import net.jgab.todd.core.utils.gson.AnnotationExclusionStrategy;
+
 import java.io.IOException;
 
 import javax.inject.Singleton;
@@ -50,6 +52,12 @@ public class NetModule {
     Gson provideGson() {
         return new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .addSerializationExclusionStrategy(
+                    new AnnotationExclusionStrategy(AnnotationExclusionStrategy.Mode.SERIALIZE)
+                )
+                .addDeserializationExclusionStrategy(
+                    new AnnotationExclusionStrategy(AnnotationExclusionStrategy.Mode.DESERIALIZE)
+                )
                 .create();
     }
 

@@ -1,5 +1,11 @@
 package net.jgab.todd.to;
 
+import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
+import com.orm.dsl.Table;
+
+import net.jgab.todd.core.utils.gson.Exclude;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,18 +13,19 @@ import java.util.List;
  * Created by sid on 14-02-17.
  */
 
-public class Test implements Serializable {
+public class Quiz extends SugarRecord implements Serializable {
 
-    private String id;
+    @SerializedName("_id")
+    private String apiId;
     private String title;
     private List<Question> questions;
 
-    public String getId() {
-        return id;
+    public String getApiId() {
+        return apiId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setApiId(String apiId) {
+        this.apiId = apiId;
     }
 
     public String getTitle() {

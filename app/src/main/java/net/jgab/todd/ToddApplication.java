@@ -2,6 +2,8 @@ package net.jgab.todd;
 
 import android.app.Application;
 
+import com.orm.SugarContext;
+
 import net.jgab.todd.core.ApplicationModule;
 import net.jgab.todd.core.DaggerToddComponent;
 import net.jgab.todd.core.NetModule;
@@ -23,9 +25,17 @@ public class ToddApplication extends Application {
                 .netModule(new NetModule(BuildConfig.BASE_ENDPOINT))
                 .applicationModule(new ApplicationModule(this))
                 .build();
+
+        SugarContext.init(this);
     }
 
     public static ToddComponent getComponent() {
         return component;
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        SugarContext.terminate();
     }
 }
