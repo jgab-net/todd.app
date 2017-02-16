@@ -3,8 +3,10 @@ package net.jgab.todd.sync;
 import com.orm.SugarRecord;
 import com.orm.SugarTransactionHelper;
 
+import net.jgab.todd.to.Answer;
 import net.jgab.todd.to.Question;
 import net.jgab.todd.to.Quiz;
+import net.jgab.todd.to.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +38,7 @@ class SyncHelper {
             public void manipulateInTransaction() {
                 for (int i = 0, l = toSync.size(); i < l; i++) {
                     toSync.get(i).save();
-                    callback.onItemStored(i, l);
+                    callback.onItemStored(i + 1, l);
                 }
 
                 callback.onReady();

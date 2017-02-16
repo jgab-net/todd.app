@@ -5,5 +5,19 @@
     <string name="synchronization_progress_text">Creating a list of test in the device</string>
     <string name="synchronization_ready_title">Synchronization ready</string>
     <string name="synchronization_ready_text">The list of test is stored in the device</string>
-    <string name="title_activity_quizzes">Patients Lists</string>
+    <string name="title_activity_patients">Patients Lists</string>
+    <string name="label_patient_name">Patient name</string>
+    <string name="label_patient_email">Patient email</string>
+    <string name="patient_list_empty">Your patient list \nis empty, \nadd a new patient.</string>
+    <string name="patient_add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="patient_dialog_title">Create a Patient</string>
+    <string name="patient_list_add_quiz">Add a quiz</string>
+    <string name="title_activity_quizzes">Take a Quiz for %1$s</string>
+    <string name="patient_added">Patient added</string>
+    <string name="save_an_answers_for_a_quiz">Save an answers for a quiz</string>
+    <string name="quiz_saved">Quiz saved</string>
+    <string name="percent">%1$,.2f %%</string>
+    <string name="email_error">Email invalid or required</string>
+    <string name="name_error">Name required</string>
 </resources>

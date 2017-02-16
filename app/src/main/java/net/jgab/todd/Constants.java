@@ -7,4 +7,5 @@ package net.jgab.todd;
 public class Constants {
 
     public static final String SYNC_STATE = "synchronization_state";
+    public static final String PICTURE_URL = "https://robohash.org/{email}";
 }

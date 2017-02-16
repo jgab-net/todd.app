@@ -10,15 +10,11 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 
-import com.orm.SugarRecord;
-import com.orm.SugarTransactionHelper;
-
 import net.jgab.todd.Constants;
 import net.jgab.todd.R;
 import net.jgab.todd.ToddApplication;
 import net.jgab.todd.core.ToddApiModule;
-import net.jgab.todd.patient.PatientsActivity;
-import net.jgab.todd.to.Question;
+import net.jgab.todd.patient.PatientListActivity;
 import net.jgab.todd.to.Quiz;
 
 import java.io.IOException;
@@ -116,7 +112,7 @@ public class SyncService extends IntentService {
                 .setContentIntent(PendingIntent.getActivity(
                         this,
                         0,
-                        new Intent(this, PatientsActivity.class),
+                        new Intent(this, PatientListActivity.class),
                         PendingIntent.FLAG_UPDATE_CURRENT
                 ))
                 .setSmallIcon(R.mipmap.ic_launcher)

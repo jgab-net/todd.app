@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/activity_patients"
     android:layout_height="match_parent"
+    android:id="@+id/activity_quizzes"
     android:fitsSystemWindows="true"
-    tools:context="net.jgab.todd.patient.PatientListActivity">
+    tools:context="net.jgab.todd.quiz.QuizzesActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,22 +22,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <ViewSwitcher
-        android:id="@+id/switcher"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/empty_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/patient_list_empty"
-            android:textSize="40sp"
-            android:gravity="center"/>
-
         <ExpandableListView
-            android:id="@+id/patient_list"
+            android:id="@+id/quiz_list"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             tools:listitem="@layout/element_patients_patient"
@@ -46,14 +38,6 @@
             android:divider="@android:color/transparent"
             android:dividerHeight="0dp"/>
 
-    </ViewSwitcher>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_add_person" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
