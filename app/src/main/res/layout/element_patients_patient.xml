@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_element"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/picture"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <LinearLayout
+        android:padding="14dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:text="@string/label_patient_name"
+            android:textSize="20sp"
+            android:layout_gravity="top"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:text="@string/label_patient_email"
+            android:textSize="14sp"
+            android:layout_gravity="top"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/to_quiz"
+        android:contentDescription="@string/patient_list_add_quiz"
+        android:layout_width="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/ic_add_quiz"
+        />
+
+</LinearLayout>

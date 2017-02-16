@@ -1,6 +1,7 @@
 package net.jgab.todd.core.utils;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
@@ -22,6 +23,11 @@ public class ScreenUtils {
     @SuppressWarnings("unchecked")
     public static <T> T findViewById(Activity activity, int id) {
         return (T) activity.findViewById(id);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T findViewById(Dialog dialog, int id) {
+        return (T) dialog.findViewById(id);
     }
 
 }

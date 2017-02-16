@@ -52,6 +52,7 @@ public class NetModule {
     Gson provideGson() {
         return new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                //.setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
                 .addSerializationExclusionStrategy(
                     new AnnotationExclusionStrategy(AnnotationExclusionStrategy.Mode.SERIALIZE)
                 )

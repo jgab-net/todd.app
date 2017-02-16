@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 
 import net.jgab.todd.R;
 import net.jgab.todd.core.utils.ScreenUtils;
-import net.jgab.todd.patient.PatientsActivity;
+import net.jgab.todd.patient.PatientListActivity;
 
 public class SyncActivity extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class SyncActivity extends AppCompatActivity {
 
             if (value == max) {
                 SyncActivity.this.finish();
-                startActivity(new Intent(SyncActivity.this, PatientsActivity.class));
+                startActivity(new Intent(SyncActivity.this, PatientListActivity.class));
             }
         }
     }

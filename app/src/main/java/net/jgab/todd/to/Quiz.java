@@ -2,11 +2,13 @@ package net.jgab.todd.to;
 
 import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 import com.orm.dsl.Table;
 
 import net.jgab.todd.core.utils.gson.Exclude;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +20,8 @@ public class Quiz extends SugarRecord implements Serializable {
     @SerializedName("_id")
     private String apiId;
     private String title;
-    private List<Question> questions;
+    @Ignore
+    private List<Question> questions = new ArrayList<>();
 
     public String getApiId() {
         return apiId;
@@ -42,5 +45,9 @@ public class Quiz extends SugarRecord implements Serializable {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public List<Question> getStoredQuestions() {
+        return Question.find(Question.class, "quiz = ?", getId().toString());
     }
 }
