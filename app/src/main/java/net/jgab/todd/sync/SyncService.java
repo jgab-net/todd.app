@@ -59,7 +59,7 @@ public class SyncService extends IntentService {
     protected void onHandleIntent(Intent intent) {
 
         try {
-            final Response<List<Quiz>> response = api.quizzes().execute();
+            final Response<List<Quiz>> response = api.tests().execute();
 
             if (response.isSuccessful()) {
                 new SyncHelper(response.body()).store(new SyncHelper.Callback() {

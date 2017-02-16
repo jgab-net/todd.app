@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.widget.ProgressBar;
 
 import net.jgab.todd.R;
@@ -17,6 +18,10 @@ public class SyncActivity extends AppCompatActivity {
 
     private ProgressBar progress;
     private SynchronizatorReceiver receiver = new SynchronizatorReceiver();
+
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

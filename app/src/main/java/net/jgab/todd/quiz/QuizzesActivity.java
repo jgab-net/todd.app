@@ -2,9 +2,9 @@ package net.jgab.todd.quiz;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.widget.ExpandableListView;
 
@@ -23,6 +23,10 @@ public class QuizzesActivity extends AppCompatActivity
 
     private Patient patient = new Patient();
     private QuizListAdapter adapter;
+
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

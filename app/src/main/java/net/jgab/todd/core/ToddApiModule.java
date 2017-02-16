@@ -22,7 +22,7 @@ public class ToddApiModule {
     public interface ToddApiInterface {
 
         @GET("quizzes")
-        Call<List<Quiz>> quizzes();
+        Call<List<Quiz>> tests();
     }
 
     @Provides

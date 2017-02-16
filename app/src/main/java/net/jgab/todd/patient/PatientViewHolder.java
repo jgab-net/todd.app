@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import net.jgab.todd.R;
@@ -51,7 +52,7 @@ class PatientViewHolder {
                 .load(url)
                 .fit()
                 .centerCrop()
-                .placeholder(R.drawable.ic_person)
+                .placeholder(R.mipmap.ic_person)
                 .into(view);
     }
 }
