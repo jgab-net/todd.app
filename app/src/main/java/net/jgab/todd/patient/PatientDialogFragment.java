@@ -5,9 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import net.jgab.todd.R;
@@ -22,6 +26,10 @@ public class PatientDialogFragment extends DialogFragment {
 
     private PatientDialogListener listener;
 
+    private TextView emailTextView;
+    private TextView nameTextView;
+
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,33 +38,62 @@ public class PatientDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         builder.setView(inflater.inflate(R.layout.dialog_patient, null))
-                .setPositiveButton(R.string.patient_add, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        listener.onPatientAdded(addPatient(getDialog()));
-                    }
-                })
+                .setPositiveButton(R.string.patient_add, null)
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
                 });
         return builder.create();
-
-
     }
 
-    private Patient addPatient(Dialog dialog) {
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+        Button okButton = ((AlertDialog)getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
+
+        emailTextView = ScreenUtils.<TextView>findViewById(getDialog(), R.id.email);
+        nameTextView = ScreenUtils.<TextView>findViewById(getDialog(), R.id.name);
+
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isValid(emailTextView.getText(), nameTextView.getText())) {
+                    listener.onPatientAdded(addPatient());
+                    PatientDialogFragment.this.dismiss();
+                }
+            }
+        });
+    }
+
+    private Patient addPatient() {
         Patient patient = new Patient();
-        patient.setEmail(
-                ScreenUtils.<TextView>findViewById(dialog, R.id.email).getText().toString()
-        );
-        patient.setName(
-                ScreenUtils.<TextView>findViewById(dialog, R.id.name).getText().toString()
-        );
+
+        patient.setEmail(emailTextView.getText().toString());
+        patient.setName(nameTextView.getText().toString());
         patient.save();
+
         return patient;
+    }
+
+    private boolean isValid(CharSequence email, CharSequence name) {
+
+        emailTextView.setError(null);
+        nameTextView.setError(null);
+
+        if (TextUtils.isEmpty(email) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailTextView.setError(getString(R.string.email_error));
+            return false;
+        }
+
+        if (TextUtils.isEmpty(name)) {
+            nameTextView.setError(getString(R.string.name_error));
+            return false;
+        }
+
+        return true;
     }
 
     public void onAttach(Context context) {

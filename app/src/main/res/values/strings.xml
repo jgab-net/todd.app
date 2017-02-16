@@ -18,4 +18,6 @@
     <string name="save_an_answers_for_a_quiz">Save an answers for a quiz</string>
     <string name="quiz_saved">Quiz saved</string>
     <string name="percent">%1$,.2f %%</string>
+    <string name="email_error">Email invalid or required</string>
+    <string name="name_error">Name required</string>
 </resources>
