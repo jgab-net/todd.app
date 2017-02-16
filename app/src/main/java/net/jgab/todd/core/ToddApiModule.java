@@ -21,8 +21,8 @@ public class ToddApiModule {
 
     public interface ToddApiInterface {
 
-        @GET("tests")
-        Call<List<Quiz>> tests();
+        @GET("quizzes")
+        Call<List<Quiz>> quizzes();
     }
 
     @Provides
